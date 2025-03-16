@@ -18,7 +18,7 @@ function returnMovies(url) {
                 const div_column = document.createElement("div")
                 const image = document.createElement("img")
                 const title = document.createElement("h3")
-                const center = document.createElement("center")
+                const center = document.createElement("div")
 
                 div_card.className = "card"
                 div_row.className = "row"
@@ -39,3 +39,15 @@ function returnMovies(url) {
             })
         })
 }
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
+    main.innerHTML = ""
+
+    const searchItem = search.value
+
+    if (searchItem) {
+        returnMovies(SEARCH_API + searchItem)
+        search.value = ""
+    }
+})
