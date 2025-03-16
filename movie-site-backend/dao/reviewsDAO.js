@@ -30,4 +30,27 @@ export default class ReviewsDAO {
             return { error: e }
         }
     }
+
+    static async getReview(reviewId) {
+        try {
+            return await reviews.findOne({ _id: ObjectId(reviewId) })
+        } catch (e) {
+            console.error(`Unable to find review: ${e}`)
+            return { error: e }
+        }
+    }
+
+    static async updateReview(reviewId, user, review) {
+        try {
+            const updateResponse = await reviews.updateOne(
+                { _id: ObjectId(reviewId) },
+                { $set: { user: user, review: review } }
+            )
+
+            return updateResponse
+        } catch (e) {
+            console.error(`Unable to update review: ${e}`)
+            return { error: e }
+        }
+    }
 }
