@@ -9,6 +9,9 @@ body {
 
 h3 {
     color: white;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .top-nav {
@@ -35,7 +38,7 @@ h3 {
 form {
     background-color: #151f30;
     width: 100%;
-    max-width: 300px;
+    max-width: 210px;
     height: 43px;
     border-radius: 11px;
     display: flex;
