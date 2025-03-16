@@ -35,7 +35,6 @@ function returnMovies(url) {
                 div_row.appendChild(div_column)
 
                 main.appendChild(div_row)
-
             })
         })
 }
