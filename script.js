@@ -20,6 +20,11 @@ function returnMovies(url) {
                 const title = document.createElement("h3")
                 const center = document.createElement("center")
 
+                div_card.className = "card"
+                div_row.className = "row"
+                div_column.className = "column"
+                image.className = "thumbnail"
+
                 title.innerHTML = `${element.title}`
                 image.src = IMG_PATH + element.poster_path
 
