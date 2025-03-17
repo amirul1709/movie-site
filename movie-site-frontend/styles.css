@@ -9,7 +9,7 @@ body {
 
 h3 {
     color: white;
-    overflow: hidden; 
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
@@ -77,6 +77,11 @@ input {
     height: auto;
     max-height: 500px;
     max-width: 356px;
+}
+
+a {
+    text-decoration: none;
+    color: gray;
 }
 
 /* Media Queries for responsiveness */
