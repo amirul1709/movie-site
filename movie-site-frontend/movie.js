@@ -12,29 +12,22 @@ title.innerText = movieTitle
 returnReviews(API_LINK)
 
 function returnReviews(url) {
-    fetch(url).then(res => res.json())
+    fetch(url + "movie/" + movieId).then(res => res.json())
         .then(function (data) {
-            data.results.forEach(element => {
+            data.forEach(review => {
                 const div_card = document.createElement("div")
-                const div_row = document.createElement("div")
-                const div_column = document.createElement("div")
-                const image = document.createElement("img")
-                const title = document.createElement("h3")
-                const center = document.createElement("div")
 
-                div_card.className = "card"
-                div_row.className = "row"
-                div_column.className = "column"
-                image.className = "thumbnail"
-
-                title.innerText = `${element.title}`
-                image.src = IMG_PATH + element.poster_path
-
-                center.appendChild(image)
-                div_card.appendChild(center)
-                div_card.appendChild(title)
-                div_column.appendChild(div_card)
-                div_row.appendChild(div_column)
+                div_card.innerHTML = `
+                <div class="row">
+                    <div class="column">
+                        <div class="card" id="${review._id}">
+                            <p><strong>Review: </strong>${review.review}</p>
+                            <p><strong>User: </strong>${review.user}</p>
+                            <p><a href="#" onclick="editReview('${review._id}', '${review.review}', '${review.user}')">✏️</a> <a href="#" onclick="deleteReview('${review._id}')">🗑️</a></p>
+                        </div>
+                    </div>
+                </div>
+                `
 
                 main.appendChild(div_row)
             })
