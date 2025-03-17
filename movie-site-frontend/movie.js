@@ -1,10 +1,17 @@
 const API_LINK = `https://localhost:8000/api/v1/reviews/`
 
+const url = new URL(location.href)
+const movieId = url.searchParams.get("id")
+const movieTitle = url.searchParams.get("title")
+
 const main = document.getElementById("section")
+const title = document.getElementById("title")
 
-returnMovies(API_LINK)
+title.innerText = movieTitle
 
-function returnMovies(url) {
+returnReviews(API_LINK)
+
+function returnReviews(url) {
     fetch(url).then(res => res.json())
         .then(function (data) {
             data.results.forEach(element => {
@@ -20,7 +27,7 @@ function returnMovies(url) {
                 div_column.className = "column"
                 image.className = "thumbnail"
 
-                title.innerHTML = `${element.title}`
+                title.innerText = `${element.title}`
                 image.src = IMG_PATH + element.poster_path
 
                 center.appendChild(image)
