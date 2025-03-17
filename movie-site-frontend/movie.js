@@ -1,8 +1,6 @@
-const API_LINK = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`
+const API_LINK = `https://localhost:8000/api/v1/reviews/`
 
 const main = document.getElementById("section")
-const form = document.getElementById("form")
-const search = document.getElementById("query")
 
 returnMovies(API_LINK)
 
@@ -35,15 +33,3 @@ function returnMovies(url) {
             })
         })
 }
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault()
-    main.innerHTML = ""
-
-    const searchItem = search.value
-
-    if (searchItem) {
-        returnMovies(SEARCH_API + searchItem)
-        search.value = ""
-    }
-})
