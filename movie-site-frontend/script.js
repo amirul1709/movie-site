@@ -1,6 +1,8 @@
-const API_LINK = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=&page=1"
-const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
-const SEARCH_API = "https://api.themoviedb.org/3/search/movie?&api_key=&query="
+const API_KEY = "insert your api key here"
+
+const API_LINK = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`
+const IMG_PATH = `https://image.tmdb.org/t/p/w1280`
+const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${API_KEY}&query=`
 
 const main = document.getElementById("section")
 const form = document.getElementById("form")
@@ -24,7 +26,7 @@ function returnMovies(url) {
                 div_column.className = "column"
                 image.className = "thumbnail"
 
-                title.innerHTML = `${element.title}`
+                title.innerHTML = `${element.title}<br /><a href="movie.html?id=${element.id}&title=${element.title}">reviews</a>`
                 image.src = IMG_PATH + element.poster_path
 
                 center.appendChild(image)
