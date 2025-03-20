@@ -42,3 +42,23 @@ function returnReviews(url) {
             console.error('There was a problem with the fetch operation:', error);
         });
 }
+
+function editReview(id, review, user) {
+    const element = document.getElementById(id);
+    const reviewInputId = "review" + id
+    const userInputId = "user" + id
+
+    element.innerHTML = `
+        <p>
+            <strong>Review: </strong>
+            <input type="text" id="${reviewInputId}" value="${review}" />
+        </p>
+        <p>
+            <strong>User: </strong>
+            <input type="text" id="${userInputId}" value="${user}" />
+        </p>
+        <p>
+            <a href="#" onclick="saveReview("${reviewInputId}", "${userInputId}", "${id}")">💾</a>
+        </p>
+        `
+}
