@@ -58,7 +58,7 @@ function editReview(id, review, user) {
             <input type="text" id="${userInputId}" value="${user}" />
         </p>
         <p>
-            <a href="#" onclick="saveReview("${reviewInputId}", "${userInputId}", "${id}")">💾</a>
+            <a href="#" onclick="saveReview('${reviewInputId}', '${userInputId}', '${id}')">💾</a>
         </p>
         `
 }
@@ -68,10 +68,10 @@ function saveReview(reviewInputId, userInputId, id) {
     const user = document.getElementById(userInputId).value
 
     fetch(API_LINK + id, {
-        method: "PUT",
+        method: 'PUT',
         headers: {
-            "Accept": "application/json, text/plain, */*'",
-            "Content-Type": "application/json"
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ "user": user, "review": review })
     })
