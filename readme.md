@@ -1,4 +1,4 @@
-# Netflix at Home
+# Imdb at Home
 
 A simple full-stack movie review web application. Users can browse popular movies, search for titles, and add, edit, or delete reviews for each movie.
 
